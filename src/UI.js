@@ -181,7 +181,7 @@ function animate() {
 
     rayWalls = [];
     for (let index = 0; index < walls_group.length; index++) {
-        if(walls_group[index].material.visible)
+        if (walls_group[index].material.visible)
             isFacingCamera(walls_group[index]);
     }
     // isFacingCamera(ceiling);
@@ -270,8 +270,8 @@ const onmousemove = (e) => {
         mouse.y = -((e.touches[0].clientY - rect.top) / rect.height) * 2 + 1;
     }
 
-    let temp_camera ;
-    if(STORE.view ==1)
+    let temp_camera;
+    if (STORE.view == 1)
         temp_camera = camera;
     else
         temp_camera = orthoCam;
@@ -391,7 +391,7 @@ function GenerateBathroom() {
     light_2.position.set(STORE.Width / 2, STORE.Height, 0);
 
     createWalls(STORE.type);
-     
+
 }
 
 function GenerateMeasurements() {
@@ -401,7 +401,7 @@ function GenerateMeasurements() {
         scene.remove(dims[index]);
     }
     dims = [];
-    if (STORE.view !== 1) 
+    if (STORE.view !== 1)
         new Dimensions(scene, dims, orthoCam, labelRenderer.domElement, STORE.type, temp_bathtub);
 
 }
@@ -459,7 +459,7 @@ const UI = observer(() => {
 
     const [menuOption, setMenuOption] = useState([false, false, false, false, false, false, false, false, false]);
     const [isCategory, setIsCategory] = useState(false);
-    const {isAdd, setAdd} = useState(false);
+    const { isAdd, setAdd } = useState(false);
 
     function AssignVal(e) {
 
@@ -496,7 +496,7 @@ const UI = observer(() => {
             <div className="roomsSideBar" style={{ marginLeft: (menuOption[0] && !isCategory ? 0 : -400) }}>
                 <h6 className='trig-btn  py-3 w-100 border-bottom' style={{ color: "black" }}>  Room Layout</h6>
                 <div className="d-flex flex-wrap w-100">
-                    <h6 className='trig-btn  w-100' style={{ color: "black", height :"30px" }}> Floor  Plan</h6>
+                    <h6 className='trig-btn  w-100' style={{ color: "black", height: "30px" }}> Floor  Plan</h6>
                     <div className="d-flex flex-wrap w-100">
                         {Room_types.map(type => {
 
@@ -515,19 +515,19 @@ const UI = observer(() => {
                 <div className="d-flex flex-wrap w-100">
                     <h6 className='trig-btn py-3 w-100' style={{ color: "black" }}> Room  Dimensions</h6>
                     <div className="p-3 d-flex bg-white justify-content-between shadow-sm mb-3 flex-nowrap">
-                        <span style={{width : "220px"}}>Room Width</span>
+                        <span style={{ width: "220px" }}>Room Width</span>
                         <input onChange={AssignVal} type="range" id='width' value={STORE.width} min={2100} max={10000} className="form-range me-1" />
                         <input onChange={AssignVal} type="text" id='width' value={STORE.width} className="sizeInput"></input>
                         <span>mm</span>
                     </div>
                     <div className="p-3 d-flex bg-white justify-content-between shadow-sm mb-3 flex-nowrap">
-                        <span style={{width : "220px"}} >Room Length</span>
+                        <span style={{ width: "220px" }} >Room Length</span>
                         <input onChange={AssignVal} type="range" id='length' value={STORE.length} min={2100} max={10000} className="form-range" />
                         <input onChange={AssignVal} type="text" id='length' value={STORE.length} className="sizeInput"></input>
                         <span>mm</span>
                     </div>
                     <div className="p-3 d-flex bg-white justify-content-between shadow-sm mb-3 flex-nowrap">
-                         <span style={{width : "220px"}} >Room Height </span>
+                        <span style={{ width: "220px" }} >Room Height </span>
                         <input onChange={AssignVal} type="range" id='height' value={STORE.height} min={2000} max={10000} className="form-range" />
                         <input onChange={AssignVal} type="text" id='height' value={STORE.height} className="sizeInput"></input>
                         <span>mm</span>
@@ -535,14 +535,14 @@ const UI = observer(() => {
 
                     {STORE.type > 1 && < div >
                         <div className="p-3 d-flex bg-white justify-content-between shadow-sm mb-3 flex-nowrap">
-                            <span style={{width : "220px"}} >Cutout width </span>
+                            <span style={{ width: "220px" }} >Cutout width </span>
                             <input onChange={AssignVal} type="range" id='cwidth' value={STORE.cwidth} min={1000} max={STORE.width - 1000} className="form-range" />
                             <input onChange={AssignVal} type="text" id='cwidth' value={STORE.cwidth} className="sizeInput"></input>
                             <span>mm</span>
                         </div>
                         <div className="p-3 d-flex bg-white justify-content-between shadow-sm mb-3 flex-nowrap">
-                            <span style={{width : "230px"}} >Cutout length </span>
-                             <input onChange={AssignVal} type="range" id='clength' value={STORE.clength} min={1000} max={STORE.length - 1000} className="form-range" />
+                            <span style={{ width: "230px" }} >Cutout length </span>
+                            <input onChange={AssignVal} type="range" id='clength' value={STORE.clength} min={1000} max={STORE.length - 1000} className="form-range" />
                             <input onChange={AssignVal} type="text" id='clength' value={STORE.clength} className="sizeInput"></input>
                             <span>mm</span>
                         </div>
@@ -551,62 +551,68 @@ const UI = observer(() => {
 
             </div>
 
-            <div className='roomsSideBar' style={{ marginLeft: (menuOption[1] && !isCategory? 0 : -400) }} >
+            <div className='roomsSideBar' style={{ marginLeft: (menuOption[1] && !isCategory ? 0 : -400) }} >
                 <h6 className='trig-btn  py-3 w-100 border-bottom' style={{ color: "black" }}> Bathroom Elements</h6>
                 <div className="d-flex flex-wrap w-100">
-                    <h6 className='trig-btn  w-100' style={{ color: "black", height :"30px" }}> Add Room Elements</h6>
+                    <h6 className='trig-btn  w-100' style={{ color: "black", height: "30px" }}> Add Room Elements</h6>
                     <div className="d-flex flex-wrap w-100">
                         <div className='card m-2 d-flex align-items-center text-center p-2 rounded'>
                             <span className='m-2'>Door</span>
-                            <img style={{width : "80px"}} src="assets/ui/door.svg"></img>
+                            <img style={{ width: "80px" }} src="assets/ui/door.svg"></img>
                             <div className='btn m-2 rounded-5 shadow-sm'>Add to Plan +</div>
                         </div>
                         <div className='card m-2 d-flex align-items-center text-center p-2 rounded'>
                             <span className='m-2'>Window</span>
-                            <img style={{width : "80px"}} src="assets/ui/window.svg"></img>
+                            <img style={{ width: "80px" }} src="assets/ui/window.svg"></img>
                             <div className='btn m-2 rounded-5 shadow-sm'>Add to Plan +</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className='roomsSideBar' style={{ marginLeft: (menuOption[2] ? 0 : -400) }} >
+            <div className='roomsSideBar' >
                 <h6 className='trig-btn py-3 w-100 border-bottom' style={{ color: "black" }}> Bathroom Products</h6>
                 {
                     isCategory ? <Category
-                        isAdd = {isAdd}
-                        setAdd = {setAdd}
-                       
-                    /> 
-                    : <><input placeholder='Search' type="search" className='d-flex w-100 rounded-4 shadow-sm' style={{ height: 40, border:"none"}}/>
-                    <div className="d-flex flex-wrap w-100">
-                        <div className="d-flex flex-wrap w-100">
-                            <div className='card  d-flex align-items-center text-center p-2 rounded w-50' onClick={() => setIsCategory(true)}>
-                                <span className='m-2'>Baths & Spas</span>
-                                <img style={{width : "70px", scale : "2"}} src="assets/ui/e09acac1-fc05-4078-bd84-73b765c26c31.png"></img>
-                            </div>
-                            <div className='card d-flex align-items-center text-center p-2 rounded w-50'>
-                                <span className='m-2'>Window</span>
-                                <img style={{width : "70px"}} src="assets/ui/window.svg"></img>
+                        isAdd={isAdd}
+                        setAdd={setAdd}
+
+                    />
+                        : <div className='px-3'>
+                            <input placeholder='Search' type="search" className='d-flex w-100 rounded-4 shadow-sm w-100 mb-2 px-3' style={{ height: 40, border: "none" }} />
+                            <div className="d-flex flex-wrap w-100">
+                                <div className="d-flex flex-wrap w-100 justify-between">
+                                    <div className='w-50 px-1'>
+                                        <div className='card  d-flex align-items-center text-center p-2 rounded w-100 h-100' onClick={() => setIsCategory(true)}>
+                                            <span className='m-2'>Baths & Spas</span>
+                                            <img style={{ width: "70px", scale: "2" }} src="assets/ui/e09acac1-fc05-4078-bd84-73b765c26c31.png"></img>
+                                        </div>
+                                    </div>
+                                    <div className='w-50 px-1'>
+                                        <div className='card d-flex align-items-center text-center p-2 rounded w-100 h-100'>
+                                            <span className='m-2'>Window</span>
+                                            <img style={{ width: "70px" }} src="assets/ui/window.svg"></img>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div></>
                 }
             </div>
 
-            <div className='roomsSideBar' style={{ marginLeft: (menuOption[3] && !isCategory? 0 : -400) }} >
+            <div className='roomsSideBar' style={{ marginLeft: (menuOption[3] && !isCategory ? 0 : -400) }} >
                 <h6 className='trig-btn  py-3 w-100 border-bottom' style={{ color: "black" }}> Styling</h6>
             </div>
 
-            <div className='roomsSideBar' style={{ marginLeft: (menuOption[4] && !isCategory? 0 : -400) }} >
+            <div className='roomsSideBar' style={{ marginLeft: (menuOption[4] && !isCategory ? 0 : -400) }} >
                 <h6 className='trig-btn  py-3 w-100 border-bottom' style={{ color: "black" }}> Product Summary</h6>
             </div>
 
-            <div className='roomsSideBar' style={{ marginLeft: (menuOption[5] && !isCategory? 0 : -400) }} >
+            <div className='roomsSideBar' style={{ marginLeft: (menuOption[5] && !isCategory ? 0 : -400) }} >
                 <h6 className='trig-btn  py-3 w-100 border-bottom' style={{ color: "black" }}> Consultation</h6>
             </div>
 
-            <div className='roomsSideBar' style={{ marginLeft: (menuOption[6] && !isCategory? 0 : -400) }} >
+            <div className='roomsSideBar' style={{ marginLeft: (menuOption[6] && !isCategory ? 0 : -400) }} >
                 <h6 className='trig-btn py-3 w-100 border-bottom' style={{ color: "black" }}> Exit Plan</h6>
             </div>
             <div className="col-12 position-relative p-0 m-0">
@@ -616,12 +622,12 @@ const UI = observer(() => {
                 <div id="canvas-container" className='border col-12'>
 
                 </div>
-                <div className="rightSideBar" style={{left : window.innerWidth -150}}>
+                <div className="rightSideBar" style={{ left: window.innerWidth - 150 }}>
                     <div>
                         <img onClick={e => STORE.view = 0} className={(STORE.view === 0 ? 'active ' : '') + 'btn p-2 bg-light m-3 rounded-1'} src="assets/ui/2d.svg" alt="" />
-                        <img onClick={e => STORE.view = 1} className={(STORE.view === 1 ? 'active ' : '') + 'btn p-2 bg-light  m-3 rounded-1'}  src="assets/ui/3d_view.png" alt="" />
-                        <img onClick ={e=> STORE.scale +=0.1 } className='d-block shadow-focus btn p-2 bg-light  m-3 rounded-1'   src="assets/ui/zoomin.svg" alt="" />
-                        <img className='d-block shadow-focus btn p-2 bg-light  m-3 rounded-1'   src="assets/ui/zoomout.svg" alt="" />
+                        <img onClick={e => STORE.view = 1} className={(STORE.view === 1 ? 'active ' : '') + 'btn p-2 bg-light  m-3 rounded-1'} src="assets/ui/3d_view.png" alt="" />
+                        <img onClick={e => STORE.scale += 0.1} className='d-block shadow-focus btn p-2 bg-light  m-3 rounded-1' src="assets/ui/zoomin.svg" alt="" />
+                        <img className='d-block shadow-focus btn p-2 bg-light  m-3 rounded-1' src="assets/ui/zoomout.svg" alt="" />
                     </div>
                 </div>
             </div>

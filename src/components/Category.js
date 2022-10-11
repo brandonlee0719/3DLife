@@ -21,8 +21,8 @@ export function Category(props){
                  : <div className="d-flex flex-wrap w-100">
                     <div className="d-flex flex-wrap mt-2 w-100 bg-white p-2 rounded shadow-sm">
                         <div className="d-flex" onClick={() => setIsAllCategories(true)}>
-                            <span>View All</span>
-                            <span><img src="assets/ui/arrow-right.svg"/></span>
+                            <span>View All(20)</span>
+                            <span className="ml-5"><img src="assets/ui/arrow-right.svg"/></span>
                         </div>
                             
                     </div>
